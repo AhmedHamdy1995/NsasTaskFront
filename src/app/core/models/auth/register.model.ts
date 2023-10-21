@@ -1,5 +1,7 @@
-export interface RegisterModel{
-    userName?: string;
-    password?:string;
-    email?:string;
+export interface RegisterModel {
+  firstName?: string;
+  lastName?: string;
+  username?: string;
+  email?: string;
+  password?: string;
 }

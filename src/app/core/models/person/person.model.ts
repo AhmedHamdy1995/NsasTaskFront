@@ -5,7 +5,4 @@ export interface PersonModel{
     name?:string;
     email?:string;
     dateOfBirh?:Date,
-    country?: CountryModel,
-    countryId?: number,
-    image?:File | string;
 }

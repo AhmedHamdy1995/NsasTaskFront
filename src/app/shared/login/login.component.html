@@ -7,11 +7,11 @@
     <div class="row align-items-center justify-content-center">
         <form class="login__form row  mt-3 col-6  align-items-center " [formGroup]="loginForm">
             <div class="col-md-12">
-              <label for="userName" class="form-label">UserName</label>
-              <input type="text" class="form-control" id="userName" [formControlName]="'userName'">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" [formControlName]="'email'">
               <div class="form-validation text-danger">
-                <div class="form-validation--invalid m-2" *ngIf="loginForm.get('userName')?.touched && loginForm.get('userName')?.hasError('required')">
-                  The field "UserName" is required
+                <div class="form-validation--invalid m-2" *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">
+                  The field "Email" is required
                 </div>
               </div>
             </div>
@@ -22,7 +22,7 @@
                 <div class="form-validation--invalid m-2" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
                   The field "Password" is required
                 </div>
-                
+
               </div>
             </div>
             <div class="col-12">
@@ -43,5 +43,5 @@
             </button>
           </div>
     </div>
-   
+
 </div>

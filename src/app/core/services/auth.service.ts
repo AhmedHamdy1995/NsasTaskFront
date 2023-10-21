@@ -10,15 +10,17 @@ import { environment } from 'src/environments/environments';
   providedIn: 'root'
 })
 export class AuthService {
-  baseUrl = environment.apiUrl + 'auth/';
+  baseUrl = environment.apiUrl + 'Authorization/';
   jwtHelper = new JwtHelperService();
   decodedToken:any;
   tokenScheme = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/";
   constructor(private http: HttpClient) {}
   Login(login:LoginModel) {
+    console.log("form",login)
     return this.http.post(this.baseUrl + 'login', login).pipe(
       map((response: any) => {
         const user = response;
+        console.log("response",response)
         if (user) {
           localStorage.setItem('token', user.token);
           this.decodedToken = this.jwtHelper.decodeToken(user.token);

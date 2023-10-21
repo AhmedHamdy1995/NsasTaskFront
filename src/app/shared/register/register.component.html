@@ -7,22 +7,40 @@
     <div class="row align-items-center justify-content-center">
         <form class="register__form row  mt-5 col-6  align-items-center " [formGroup]="registerForm">
             <div class="col-md-12">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" [formControlName]="'email'">
-                <div class="form-validation text-danger">
-                    <div class="form-validation--invalid m-2" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')">
-                      The field "Email" is required
-                    </div>
-                  </div> 
+              <label for="firstName" class="form-label mt-2">First Name</label>
+              <input type="text" class="form-control" id="firstName" [formControlName]="'firstName'">
+              <div class="form-validation text-danger">
+                <div class="form-validation--invalid m-2" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.hasError('required')">
+                  The field "Fisrt Name" is required
+                </div>
+              </div>
             </div>
             <div class="col-md-12">
-              <label for="iuserName" class="form-label mt-2">UserName</label>
+              <label for="lastName" class="form-label mt-2">Last Name</label>
+              <input type="text" class="form-control" id="lastName" [formControlName]="'lastName'">
+              <div class="form-validation text-danger">
+                <div class="form-validation--invalid m-2" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.hasError('required')">
+                  The field "Last Name" is required
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <label for="userName" class="form-label mt-2">UserName</label>
               <input type="text" class="form-control" id="userName" [formControlName]="'userName'">
               <div class="form-validation text-danger">
                 <div class="form-validation--invalid m-2" *ngIf="registerForm.get('userName')?.touched && registerForm.get('userName')?.hasError('required')">
                   The field "UserName" is required
                 </div>
               </div>
+            </div>
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" [formControlName]="'email'">
+                <div class="form-validation text-danger">
+                    <div class="form-validation--invalid m-2" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.hasError('required')">
+                      The field "Email" is required
+                    </div>
+                  </div>
             </div>
             <div class="col-12">
               <label for="inputPassword4" class="form-label mt-2">Password</label>
@@ -37,11 +55,10 @@
               <button type="submit" class="btn register__btn" [disabled]="!registerForm!.valid" (click)="onSubmit()">Register</button>
               <a [routerLink]="" class="btn btn-link register__login" [routerLink]="['/login']">Sign in</a>
             </div>
-          </form>
-         
+        </form>
     </div>
     <div class="alert alert-primary m-2 alert-dismissible fade show" role="alert" *ngIf="displaySuccess">
-        You registered new Account, Please Log in
+        You registered Successfully , Now you have a new Account .
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
