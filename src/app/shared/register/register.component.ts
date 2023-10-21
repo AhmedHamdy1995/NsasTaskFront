@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RegisterModel } from 'src/app/core/models/auth/register.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -14,7 +15,7 @@ export class RegisterComponent {
   displaySuccess:boolean;
   registerModel: RegisterModel = {};
 
-  constructor(private authService:AuthService){
+  constructor(private authService:AuthService ,private router:Router){
     this.registerForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
@@ -48,7 +49,7 @@ export class RegisterComponent {
         next:(res) => {
         console.log(res);
         this.displaySuccess = true;
-
+        this.router.navigate(['/tasks']);
       },
       error:(error) => {
         console.log(error);

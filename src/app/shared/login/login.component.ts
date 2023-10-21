@@ -45,14 +45,12 @@ export class LoginComponent {
         next:(res) => {
         console.log(res);
         this.displaySuccess = true;
-        this.router.navigate(['/persons']);
+        this.router.navigate(['/tasks']);
 
       },
       error:(error) => {
         console.log(error);
         this.displayError = true;
-
-        //this.router.navigate(['/persons']);
       }});
     }
   }

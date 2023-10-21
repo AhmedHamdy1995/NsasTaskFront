@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <div class="">
+        <a><h5 [routerLink]="['/task-add-edit', task?.id]">{{task!.title}}</h5></a>
+    </div>
+    <p class=""><strong>Status: </strong>{{task!.status}}</p>
+    <p class=""><strong>Due Date: </strong>{{task!.dueDate}}</p>
+    <p class=""><strong>Decription: </strong>{{task!.description}}</p>
+    <div>
+      <a (click)="onPrint()" class="btn mr-2 task__btn">Print</a>
+      <a (click)="onDelete()" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>

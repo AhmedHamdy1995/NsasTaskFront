@@ -10,6 +10,8 @@ import { AuthService } from './core/services/auth.service';
 import { LoginComponent } from './shared/login/login.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { RegisterComponent } from './shared/register/register.component';
+import { NsasTaskItemComponent } from './features/nsasTask/nsas-task-item/nsas-task-item.component';
+import { NsasTaskListingComponent } from './features/nsasTask/nsas-task-listing/nsas-task-listing.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { RegisterComponent } from './shared/register/register.component';
     NavComponent,
     LoginComponent,
     RegisterComponent,
+    NsasTaskItemComponent,
+    NsasTaskListingComponent,
     // PersonAddEditComponent,
     // PersonComponent,
     // PersonListingComponent,
