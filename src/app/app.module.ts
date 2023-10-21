@@ -1,18 +1,38 @@
+import { DatePipe } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { AuthService } from './core/services/auth.service';
+import { LoginComponent } from './shared/login/login.component';
+import { NavComponent } from './shared/nav/nav.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    LoginComponent,
+    RegisterComponent,
+    // PersonAddEditComponent,
+    // PersonComponent,
+    // PersonListingComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    HttpClientModule ,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    DatePipe,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

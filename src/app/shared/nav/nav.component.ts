@@ -15,13 +15,10 @@ export class NavComponent {
     this.role = authService.getRole();
   }
   loggedIn(){
-    // this.isLoggedIn = true;
      return this.authService.loggedIn();
    }
    loggedOut(){
-    // this.isLoggedIn = false;
      localStorage.removeItem('token');
-    // this.alertifyService.message('Logged Out');
      this.router.navigate(['/']);
    }
 }
