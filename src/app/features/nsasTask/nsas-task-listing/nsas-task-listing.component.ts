@@ -44,10 +44,16 @@ export class NsasTaskListingComponent implements OnInit {
     this.router.navigate(['/task-details/' + id]);
   }
   onSelectStatus(value:any){
+   if(value.value == 0){
+    this.getTasks()
+   }else{
+    console.log("this.tasksFilters",this.tasksFilters)
     this.tasksFilters.status = Number(value.value);
     this.taskService.filterNsasTasks(this.tasksFilters).subscribe(data => {
       this.tasks = data;
     })
+   }
+
   }
   getTasks(){
     this.taskService.getAllNsasTasks().subscribe(data => {
@@ -56,6 +62,7 @@ export class NsasTaskListingComponent implements OnInit {
   }
 
   search(filter:any){
+    console.log("this.tasksFilters",this.tasksFilters)
    this.tasksFilters.stringfilters = filter.target.value ;
    this.taskService.filterNsasTasks(this.tasksFilters).subscribe(data => {
     this.tasks = data;

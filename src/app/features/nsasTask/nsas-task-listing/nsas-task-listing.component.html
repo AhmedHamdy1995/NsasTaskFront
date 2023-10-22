@@ -7,7 +7,7 @@
   <div class="container">
     <form>
       <select #ref class="form-control" (change)="onSelectStatus(ref)">
-        <option>Select Status</option>
+        <option [value]="0">Select Status</option>
         <option *ngFor="let i of statuses" [value]="i.id">{{i.name}}</option>
       </select>
       <input type="text" class="form-control col-2" (keyup)="search($event)" placeholder="Search ...">
