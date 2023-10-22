@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
 import { NsasTaskDto } from '../models/NsasTask/nsasTaskDto';
-import { Observable } from 'rxjs';
+import { Observable, filter } from 'rxjs';
+import { NsasTaskFilters } from '../models/NsasTask/nsasTaskFilters';
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +24,12 @@ export class NsasTaskService {
   getNsasTaskById(id:number): Observable<NsasTaskDto>{
     return this.httpClient.get<NsasTaskDto>(`${this.baseUrl}GetNsasTask/${id}`);
   }
-  // filterNsasTasks(countryId?: number){
+  filterNsasTasks(filters: NsasTaskFilters): Observable<NsasTaskDto[]>{
 
-  //   return this.httpClient.post<NsasTaskDto[]>(`${this.baseUrl}FilterNsasTask`, countryId);
-  // }
+    return this.httpClient.get<NsasTaskDto[]>(`${this.baseUrl}filterNsasTasks?stringfilters=${filters.stringfilters}&status=${filters.status}`);
+  }
 
-  filterNsasTasks(){
+  getAllNsasTasks(){
     return this.httpClient.get<NsasTaskDto[]>(`${this.baseUrl}getAllNsasTasks`);
   }
 }

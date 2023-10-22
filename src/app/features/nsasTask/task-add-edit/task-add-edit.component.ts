@@ -3,7 +3,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NsasTaskDto } from 'src/app/core/models/NsasTask/nsasTaskDto';
-import { CountryService } from 'src/app/core/services/country.service';
 import { NsasTaskService } from 'src/app/core/services/nsasTask.service';
 
 @Component({
@@ -13,7 +12,7 @@ import { NsasTaskService } from 'src/app/core/services/nsasTask.service';
 })
 export class TaskAddEditComponent implements OnInit {
   taskForm!: FormGroup;
-  @Input() personAddEdit: NsasTaskDto | undefined;
+  @Input() taskAddEdit: NsasTaskDto | undefined;
   @Input() statuses: any[] = [];
 
   @Output() add = new EventEmitter<NsasTaskDto>();
@@ -23,9 +22,8 @@ export class TaskAddEditComponent implements OnInit {
   taskId: number | undefined;
   title: string ="";
   url: any ;
-  selectedCountry?: any;
 
-  constructor(private taskService: NsasTaskService, public datePipe: DatePipe, private countryService: CountryService,
+  constructor(private taskService: NsasTaskService, public datePipe: DatePipe,
     private activatedRoute: ActivatedRoute, private router:Router
     ) {
     this.taskForm = new FormGroup(
@@ -50,14 +48,14 @@ export class TaskAddEditComponent implements OnInit {
     if (this.taskId !== undefined) {
       this.title = 'Edit Task';
       this.taskService.getNsasTaskById(this.taskId).subscribe((res) =>{
-        this.personAddEdit = res;
+        this.taskAddEdit = res;
        console.log("item",res)
         this.taskForm.patchValue({
-          id: this.personAddEdit!.id,
-          status: this.personAddEdit!.status,
-          title: this.personAddEdit!.title,
-          description: this.personAddEdit!.description,
-          dueDate: this.datePipe.transform(this.personAddEdit!.dueDate, 'yyyy-MM-dd'),
+          id: this.taskAddEdit!.id,
+          status: this.taskAddEdit!.status,
+          title: this.taskAddEdit!.title,
+          description: this.taskAddEdit!.description,
+          dueDate: this.datePipe.transform(this.taskAddEdit!.dueDate, 'yyyy-MM-dd'),
         });
       });
 
@@ -73,22 +71,22 @@ export class TaskAddEditComponent implements OnInit {
   }
   onSubmit() {
     if (this.taskForm.valid) {
-      this.personAddEdit = this.taskForm.getRawValue();
+      this.taskAddEdit = this.taskForm.getRawValue();
 
       console.log("item",this.taskForm.getRawValue());
       if (this.taskId == undefined) {
         this.taskService.addNsasTask(this.taskForm.getRawValue())
           .subscribe(() => {
             this.router.navigate(['./tasks']);
-            this.add.emit(this.personAddEdit);
+            this.add.emit(this.taskAddEdit);
           });
       }
       else {
-        this.taskService.editNsasTask(this.personAddEdit!)
+        this.taskService.editNsasTask(this.taskAddEdit!)
           .subscribe({
             next: () => {
               this.router.navigate(['./tasks']);
-              this.edit.emit(this.personAddEdit);
+              this.edit.emit(this.taskAddEdit);
             }
           })
       }

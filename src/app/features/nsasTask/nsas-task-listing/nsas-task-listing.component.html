@@ -3,20 +3,20 @@
       <h3 class="header__title mt-3">Tasks</h3>
   </div>
 </div>
-<div class="persons container mb-5">
-  <div class="row ">
-      <div class="col-md-6 mb-3">
-          <label for="name" class="form-label  mt-2">Search by Country</label>
-          <!-- <select #ref class="form-control" id="exampleFormControlSelect1" (change)="onSelected(ref)">
-              <option>Select Country</option>
-              <option *ngFor="let i of countries" [value]="i.id">{{i.name}}</option>
-            </select>                         -->
-        </div>
-        <div class="btn btn-primary" (click)="openCreating()"> Create Task </div>
+<div class="container">
+  <div class="tasks row">
+    <label  class="form-label col-2">Search by Status</label>
+    <select #ref class="form-control col-2" (change)="onSelectStatus(ref)">
+        <option>Select Status</option>
+        <option *ngFor="let i of statuses" [value]="i.id">{{i.name}}</option>
+    </select>
+    <label  class="form-label col-2">Search</label>
+    <input type="text" class="form-control col-2" (keyup)="search($event)">
+    <div class="btn btn-primary col-2" (click)="openCreating()"> Create Task </div>
   </div>
-  <div class="row align-items-center ">
+  <div class="row">
 
-    <div class="col-4" *ngFor="let task of tasks">
+    <div class="col-3" *ngFor="let task of tasks">
       <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)"
       (readTask)="readTask($event)" (editTask)="editTask($event)"></app-nsas-task-item>
     </div>

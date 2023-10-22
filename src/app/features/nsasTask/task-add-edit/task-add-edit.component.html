@@ -3,9 +3,9 @@
       <h3 class="header__title mt-3">{{title}}</h3>
   </div>
 </div>
-<div class="person-add-edit container">
+<div class="task-add-edit container">
   <div class="row align-items-center ">
-      <form class="person-add-edit__form row  mt-3 col-6  align-items-center " [formGroup]="taskForm">
+      <form class="task-add-edit__form row  mt-3 col-6  align-items-center " [formGroup]="taskForm">
           <div class="col-md-12">
             <label for="title" class="form-label">title</label>
             <input type="hidden" class="form-control" id="id" [formControlName]="'id'">
@@ -53,11 +53,11 @@
             </div>
           </div>
           <div class="col-12">
-            <button type="submit" class="btn person-add-edit__btn" [disabled]="!taskForm!.valid" (click)="onSubmit()">Submit</button>
+            <button type="submit" class="btn task-add-edit__btn" [disabled]="!taskForm!.valid" (click)="onSubmit()">Submit</button>
           </div>
         </form>
-        <div class="person-add-edit__img-container col-6">
-            <img [src]="url" class="person-add-edit__img"/>
+        <div class="task-add-edit__img-container col-6">
+            <img [src]="url" class="task-add-edit__img"/>
         </div>
   </div>
 </div>
