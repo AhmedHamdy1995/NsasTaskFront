@@ -1,16 +1,18 @@
-
+.login-page{
+  margin-top: 100px;
+}
 .login{
     &__btn{
         background-color: hsl(196, 86%, 23%);
         color: #FFF;
         margin-top: 1rem;
-
     }
     &__form{
         padding: 2rem;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         position: relative;
         border-radius: 1rem;
+        background-color: #e6e6e6;
     }
 
 }

@@ -4,3 +4,35 @@
   justify-content: space-between;
   margin-bottom: 40px;
 }
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > input {
+    flex: 1 1 10ch;
+    margin: .5rem;
+
+    &[type="email"] {
+      flex: 3 1 30ch;
+    }
+  }
+  & > select {
+    flex: 1 1 10ch;
+    margin: .5rem;
+  }
+}
+
+input , select{
+  border: none;
+  background: hsl(0 0% 93%);
+  border-radius: .25rem;
+  padding: .75rem 1rem;
+
+  &[type="button"] {
+    background: rgb(80, 108, 231);
+    color: white;
+    box-shadow: 0 .75rem .5rem -.5rem hsl(0 50% 80%);
+    width:50px
+  }
+}

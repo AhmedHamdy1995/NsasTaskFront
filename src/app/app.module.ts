@@ -16,6 +16,7 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { PrompetComponent } from './shared/prompet/prompet.component';
 import { TaskAddEditComponent } from './features/nsasTask/task-add-edit/task-add-edit.component';
 import { TaskDetailsComponent } from './features/nsasTask/task-details/task-details.component';
+import { ListingComponent } from './shared/listing/listing.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TaskDetailsComponent } from './features/nsasTask/task-details/task-deta
     PrompetComponent,
     TaskAddEditComponent,
     TaskDetailsComponent,
+    ListingComponent,
   ],
   imports: [
     BrowserModule,

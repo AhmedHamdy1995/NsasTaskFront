@@ -77,16 +77,18 @@ export class TaskAddEditComponent implements OnInit {
       if (this.taskId == undefined) {
         this.taskService.addNsasTask(this.taskForm.getRawValue())
           .subscribe(() => {
+            alert("add")
             this.router.navigate(['./tasks']);
-            this.add.emit(this.taskAddEdit);
+            // this.add.emit(this.taskAddEdit);
           });
       }
       else {
         this.taskService.editNsasTask(this.taskAddEdit!)
           .subscribe({
             next: () => {
+              alert("edit")
               this.router.navigate(['./tasks']);
-              this.edit.emit(this.taskAddEdit);
+              // this.edit.emit(this.taskAddEdit);
             }
           })
       }

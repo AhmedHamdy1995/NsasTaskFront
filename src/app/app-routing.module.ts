@@ -6,6 +6,7 @@ import { NsasTaskListingComponent } from './features/nsasTask/nsas-task-listing/
 import { AuthGuard } from './core/guards/auth.guard';
 import { TaskAddEditComponent } from './features/nsasTask/task-add-edit/task-add-edit.component';
 import { TaskDetailsComponent } from './features/nsasTask/task-details/task-details.component';
+import { ListingComponent } from './shared/listing/listing.component';
 
 const routes: Routes = [
   {path: 'home', component: LoginComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'task-add-edit/:id', component: TaskAddEditComponent},
   {path: 'task-add-edit', component: TaskAddEditComponent},
   {path: 'task-details/:id', component: TaskDetailsComponent},
+  // {path: 'listing', component: ListingComponent},
 
 ];
 

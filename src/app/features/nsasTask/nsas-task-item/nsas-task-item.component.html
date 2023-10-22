@@ -1,15 +1,13 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <div class="">
-        <a><h5 [routerLink]="['/task-add-edit', task?.id]">{{task!.title}}</h5></a>
-    </div>
-    <p class=""><strong>Status: </strong>{{task!.status}}</p>
-    <p class=""><strong>Due Date: </strong>{{task!.dueDate}}</p>
-    <p class=""><strong>Decription: </strong>{{task!.description}}</p>
-    <div>
-      <a (click)="onRead()" class="btn mr-2 task__btn">Read</a>
-      <a (click)="onEdit()" class="btn btn-danger">Edit</a>
-      <a (click)="onDelete()" class="btn btn-danger">Delete</a>
-    </div>
-  </div>
-</div>
+	<div class="member  col-12">
+		<div class="description">
+				<h3>{{task!.status}}</h3>
+        <h4>{{task!.title}}</h4>
+				<p> {{task!.description}}</p>
+        <p>{{task!.dueDate}}</p>
+        <div class="actions">
+          <a (click)="onRead()" class="btn"><i class="fa fa-info-circle"  aria-hidden="true"></i></a>
+          <a (click)="onEdit()" class="btn"><i class="fa fa-pencil-square" aria-hidden="true"></i></a>
+          <a (click)="onDelete()" class="btn"><i class="fa fa-trash" aria-hidden="true"></i></a>
+        </div>
+			</div>
+		</div>

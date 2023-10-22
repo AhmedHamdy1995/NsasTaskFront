@@ -25,7 +25,6 @@ export class NsasTaskListingComponent implements OnInit {
       {id: 2 , name: 'InProgress'},
       {id: 3 , name: 'Complated'},
     ]
-
   }
 
   openCreating(){

@@ -1,27 +1,26 @@
-<div class="header container">
-  <div class="row align-items-center justify-content-center">
-      <h3 class="header__title mt-3">Tasks</h3>
-  </div>
-</div>
-<div class="container">
-  <div class="tasks row">
-    <label  class="form-label col-2">Search by Status</label>
-    <select #ref class="form-control col-2" (change)="onSelectStatus(ref)">
-        <option>Select Status</option>
-        <option *ngFor="let i of statuses" [value]="i.id">{{i.name}}</option>
-    </select>
-    <label  class="form-label col-2">Search</label>
-    <input type="text" class="form-control col-2" (keyup)="search($event)">
-    <div class="btn btn-primary col-2" (click)="openCreating()"> Create Task </div>
-  </div>
-  <div class="row">
-
-    <div class="col-3" *ngFor="let task of tasks">
-      <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)"
-      (readTask)="readTask($event)" (editTask)="editTask($event)"></app-nsas-task-item>
+<div class="task-listing">
+  <div class="header container">
+    <div class="row align-items-center justify-content-center">
+        <h3 class="header__title mt-3">Tasks</h3>
     </div>
   </div>
+  <div class="container">
+    <form>
+      <select #ref class="form-control" (change)="onSelectStatus(ref)">
+        <option>Select Status</option>
+        <option *ngFor="let i of statuses" [value]="i.id">{{i.name}}</option>
+      </select>
+      <input type="text" class="form-control col-2" (keyup)="search($event)" placeholder="Search ...">
+      <input type="button" (click)="openCreating()" value="Create Task">
+    </form>
+    <div class="row">
+      <div *ngFor="let task of tasks">
+        <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)"
+        (readTask)="readTask($event)" (editTask)="editTask($event)"></app-nsas-task-item>
+      </div>
+    </div>
 
+  </div>
 </div>
 
 
