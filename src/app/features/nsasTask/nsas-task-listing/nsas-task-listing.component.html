@@ -17,7 +17,8 @@
   <div class="row align-items-center ">
 
     <div class="col-4" *ngFor="let task of tasks">
-      <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)" (readTask)="readTask($event)"></app-nsas-task-item>
+      <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)"
+      (readTask)="readTask($event)" (editTask)="editTask($event)"></app-nsas-task-item>
     </div>
   </div>
 

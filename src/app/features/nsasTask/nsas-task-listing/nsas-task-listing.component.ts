@@ -17,12 +17,12 @@ export class NsasTaskListingComponent implements OnInit {
     this.getTasks();
 
   }
+
   openCreating(){
     this.router.navigate(['/task-add-edit']);
-    this.createPopup = true;
   }
-  cancelCreating(){
-    this.createPopup = false;
+  editTask(id:number){
+    this.router.navigate(['/task-add-edit/' + id]);
   }
   deleteTask(id:number){
     this.taskService.deleteNsasTask(id).subscribe(res => {
@@ -32,7 +32,7 @@ export class NsasTaskListingComponent implements OnInit {
     })
   }
   readTask(id:number){
-    this.router.navigate(['/task-details/'+id]);
+    this.router.navigate(['/task-details/' + id]);
   }
   getTasks(){
     this.taskService.filterNsasTasks().subscribe(data => {

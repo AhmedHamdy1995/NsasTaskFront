@@ -51,7 +51,7 @@ export class TaskAddEditComponent implements OnInit {
       this.title = 'Edit Task';
       this.taskService.getNsasTaskById(this.taskId).subscribe((res) =>{
         this.personAddEdit = res;
-
+       console.log("item",res)
         this.taskForm.patchValue({
           id: this.personAddEdit!.id,
           status: this.personAddEdit!.status,
@@ -74,12 +74,7 @@ export class TaskAddEditComponent implements OnInit {
   onSubmit() {
     if (this.taskForm.valid) {
       this.personAddEdit = this.taskForm.getRawValue();
-      this.personAddEdit = {
-        title : this.taskForm.value['title'],
-        description : this.taskForm.value['description'],
-        dueDate : this.taskForm.value['dueDate'],
-        status : this.taskForm.value['status'],
-      }
+
       console.log("item",this.taskForm.getRawValue());
       if (this.taskId == undefined) {
         this.taskService.addNsasTask(this.taskForm.getRawValue())

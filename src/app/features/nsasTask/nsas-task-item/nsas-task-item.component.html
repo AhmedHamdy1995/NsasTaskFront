@@ -7,7 +7,8 @@
     <p class=""><strong>Due Date: </strong>{{task!.dueDate}}</p>
     <p class=""><strong>Decription: </strong>{{task!.description}}</p>
     <div>
-      <a (click)="onPrint()" class="btn mr-2 task__btn">Print</a>
+      <a (click)="onRead()" class="btn mr-2 task__btn">Read</a>
+      <a (click)="onEdit()" class="btn btn-danger">Edit</a>
       <a (click)="onDelete()" class="btn btn-danger">Delete</a>
     </div>
   </div>

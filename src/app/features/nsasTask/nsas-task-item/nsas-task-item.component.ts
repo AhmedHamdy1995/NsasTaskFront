@@ -8,16 +8,21 @@ import { NsasTaskDto } from 'src/app/core/models/NsasTask/nsasTaskDto';
 })
 export class NsasTaskItemComponent{
   @Input() task : NsasTaskDto | undefined;
+
+  @Output() editTask = new EventEmitter<number>();
   @Output() deleteTask = new EventEmitter<number>();
   @Output() readTask = new EventEmitter<number>();
 
   constructor(){}
 
-  onPrint(){
+  onRead(){
     this.readTask.emit(this.task?.id)
   }
   onDelete(){
     this.deleteTask.emit(this.task?.id)
+  }
+  onEdit(){
+    this.editTask.emit(this.task?.id)
   }
 
 }
