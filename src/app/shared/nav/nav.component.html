@@ -25,11 +25,9 @@
                 <li class="nav-item" routerLinkActive="active" *ngIf="loggedIn()">
                     <a class="nav-link" [routerLink]="['/tasks']">Tasks</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active" *ngIf="loggedIn()">
-                    <a class="nav-link" [routerLink]="['/person-add-edit']">Add Person</a>
-                </li>
+
                 <li class="nav-item" *ngIf="loggedIn()">
-                    <a class="nav-link"(click)="loggedOut()">LogOut</a>
+                    <a class="btn nav-link"(click)="loggedOut()">LogOut</a>
                 </li>
             </ul>
         </div>

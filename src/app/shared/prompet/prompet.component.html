@@ -1,0 +1,13 @@
+<app-modal class="prompet" *ngIf="showPopup" [showPopup]="showPopup" [height]="height" [width]="width">
+  <div class="prompet__content">
+    <div class="prompet__header">
+      <h1 class="prompet__title">
+        {{title}}
+      </h1>
+      <i class="prompet__close fa-solid fa-xmark" (click)="onClose()"></i>
+    </div>
+    <div class="prompet__body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</app-modal>

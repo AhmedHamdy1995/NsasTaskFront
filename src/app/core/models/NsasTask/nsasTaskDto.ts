@@ -5,5 +5,5 @@ export interface NsasTaskDto {
   title?: string;
   description?: string;
   dueDate?: string;
-  status?: Statuses;
+  status: number;
 }

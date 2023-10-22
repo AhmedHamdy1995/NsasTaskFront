@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environments';
 import { NsasTaskDto } from '../models/NsasTask/nsasTaskDto';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,16 @@ export class NsasTaskService {
   constructor(private httpClient: HttpClient) { }
 
   addNsasTask(NsasTask: NsasTaskDto){
-    return this.httpClient.post(`${this.baseUrl}AddNsasTask`, NsasTask);
+    return this.httpClient.post(this.baseUrl + 'CreateNsasTask', NsasTask);
   }
   editNsasTask(NsasTask: NsasTaskDto){
-    return this.httpClient.put(`${this.baseUrl}EditNsasTask`, NsasTask);
+    return this.httpClient.put(`${this.baseUrl}updateNsasTask`, NsasTask);
   }
   deleteNsasTask(id:number){
     return this.httpClient.delete(`${this.baseUrl}DeleteNsasTask/${id}`);
   }
-  getNsasTaskById(id:number){
-    return this.httpClient.get(`${this.baseUrl}GetNsasTask/${id}`);
+  getNsasTaskById(id:number): Observable<NsasTaskDto>{
+    return this.httpClient.get<NsasTaskDto>(`${this.baseUrl}GetNsasTask/${id}`);
   }
   // filterNsasTasks(countryId?: number){
 

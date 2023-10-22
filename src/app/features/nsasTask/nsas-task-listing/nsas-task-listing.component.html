@@ -12,13 +12,16 @@
               <option *ngFor="let i of countries" [value]="i.id">{{i.name}}</option>
             </select>                         -->
         </div>
+        <div class="btn btn-primary" (click)="openCreating()"> Create Task </div>
   </div>
   <div class="row align-items-center ">
 
     <div class="col-4" *ngFor="let task of tasks">
-      <app-nsas-task-item [task]="task"></app-nsas-task-item>
-      <!-- <app-person [person]="person" (deletePerson)="onDeletingPerson($event)"></app-person> -->
+      <app-nsas-task-item [task]="task" (deleteTask)="deleteTask($event)" (readTask)="readTask($event)"></app-nsas-task-item>
     </div>
   </div>
 
 </div>
+
+
+

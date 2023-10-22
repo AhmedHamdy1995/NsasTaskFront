@@ -12,6 +12,10 @@ import { NavComponent } from './shared/nav/nav.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { NsasTaskItemComponent } from './features/nsasTask/nsas-task-item/nsas-task-item.component';
 import { NsasTaskListingComponent } from './features/nsasTask/nsas-task-listing/nsas-task-listing.component';
+import { ModalComponent } from './shared/modal/modal.component';
+import { PrompetComponent } from './shared/prompet/prompet.component';
+import { TaskAddEditComponent } from './features/nsasTask/task-add-edit/task-add-edit.component';
+import { TaskDetailsComponent } from './features/nsasTask/task-details/task-details.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +25,10 @@ import { NsasTaskListingComponent } from './features/nsasTask/nsas-task-listing/
     RegisterComponent,
     NsasTaskItemComponent,
     NsasTaskListingComponent,
-    // PersonAddEditComponent,
-    // PersonComponent,
-    // PersonListingComponent,
+    ModalComponent,
+    PrompetComponent,
+    TaskAddEditComponent,
+    TaskDetailsComponent,
   ],
   imports: [
     BrowserModule,

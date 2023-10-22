@@ -1,0 +1,63 @@
+<div class="header container">
+  <div class="row align-items-center justify-content-center">
+      <h3 class="header__title mt-3">{{title}}</h3>
+  </div>
+</div>
+<div class="person-add-edit container">
+  <div class="row align-items-center ">
+      <form class="person-add-edit__form row  mt-3 col-6  align-items-center " [formGroup]="taskForm">
+          <div class="col-md-12">
+            <label for="title" class="form-label">title</label>
+            <input type="hidden" class="form-control" id="id" [formControlName]="'id'">
+
+            <input type="text" class="form-control" id="title" [formControlName]="'title'">
+            <div class="form-validation text-danger">
+              <div class="form-validation--invalid m-2" *ngIf="taskForm.get('title')?.touched && taskForm.get('title')?.hasError('required')">
+                The field "title" is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" [formControlName]="'description'" rows="4" cols="50">
+              At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+            </textarea>
+            <div class="form-validation text-danger">
+              <div class="form-validation--invalid m-2" *ngIf="taskForm.get('description')?.touched && taskForm.get('description')?.hasError('required')">
+                The field "title" is required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+              <label for="dueDate" class="form-label mt-2">Due Date</label>
+              <input type="date" class="form-control" id="dueDate" [formControlName]="'dueDate'">
+              <div class="form-validation text-danger">
+                <div class="form-validation--invalid m-2" *ngIf="taskForm.get('dueDate')?.touched && taskForm.get('dueDate')?.hasError('required')">
+                  The field "Due Date" is required
+                </div>
+                <div class="form-validation--invalid m-2" *ngIf="taskForm.get('dueDate')?.touched && taskForm.errors">
+                  The field "Due Date" is Invalid
+                </div>
+              </div>
+            </div>
+          <div class="col-md-12">
+              <label for="name" class="form-label  mt-2">Select Status</label>
+              <select #ref class="form-control" id="exampleFormControlSelect1" (change)="onSelected(ref)">
+                  <option *ngFor="let i of statuses" [value]="i.id">{{i.name}}</option>
+                </select>
+                <div class="form-validation text-danger">
+                 <div class="form-validation--invalid m-2" *ngIf="taskForm.get('status')?.touched && taskForm.get('status')?.hasError('required')">
+                  The field "Status" is required
+                </div>
+
+            </div>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn person-add-edit__btn" [disabled]="!taskForm!.valid" (click)="onSubmit()">Submit</button>
+          </div>
+        </form>
+        <div class="person-add-edit__img-container col-6">
+            <img [src]="url" class="person-add-edit__img"/>
+        </div>
+  </div>
+</div>
